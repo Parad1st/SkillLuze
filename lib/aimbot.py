@@ -67,7 +67,7 @@ class Aimbot:
             print(colored("CUDA ACCELERATION [ENABLED]", "green"))
         else:
             print(colored("[!] CUDA ACCELERATION IS UNAVAILABLE", "red"))
-            print(colored("[!] Check your PyTorch installation, else performance will be poor", "red"))
+            print(colored("[!] Check your PyTorch installation, otherwise performance will be poor.\n[!] Also try updating your Nvidia drivers.", "red"))
 
         self.model.conf = 0.45 # базовый порог достоверности (или базовое обнаружение (0-1)
         self.model.iou = 0.45 # NMS IoU (0-1)
@@ -75,7 +75,7 @@ class Aimbot:
         self.mouse_delay = mouse_delay
         self.debug = debug
 
-        print("\n[INFO] PRESS 'F1' TO TOGGLE AIMBOT\n[INFO] PRESS 'F2' TO QUIT")
+        print("\n[INFO] PRESS 'F1' TO TOGGLE AIMBOT\n[INFO] PRESS 'F2' TO QUIT\n[INFO] Hold the right mouse button for the aimbot to work")
 
     def update_status_aimbot():
         if Aimbot.aimbot_status == colored("ENABLED", 'green'):
@@ -142,7 +142,7 @@ class Aimbot:
             
 
     def start(self):
-        print("[INFO] Beginning screen capture")
+        print("[INFO] The screen is being captured!")
         Aimbot.update_status_aimbot()
         half_screen_width = ctypes.windll.user32.GetSystemMetrics(0)/2 #это всегда должно быть 960
         half_screen_height = ctypes.windll.user32.GetSystemMetrics(1)/2 #это всегда должно быть 540
@@ -213,7 +213,7 @@ class Aimbot:
                 break
 
     def clean_up():
-        print("\n[Bye!] YOU CLICK TO F2. EXIT...")
+        print("\n[!] YOU CLICK TO F2. EXIT...")
         Aimbot.screen.close()
         os._exit(0)
 
